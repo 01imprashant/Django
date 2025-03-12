@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+App Detail
+{% endblock %}
+
+{% block content %}
+
+<h1>This is my first App</h1>
+<h3>{{ myapp.name }}</h3>
+<p>{{ myapp.description }}</p>
+<img src="{{ myapp.image.url }}" alt="{{ myapp.name }}">
+
+{% endblock %}
