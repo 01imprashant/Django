@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}
+App Stores
+{% endblock %}
+
+{% block content %}
+Test content for forms
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+    </form>
+    <button type='submit'>Search Store</button>
+    {% if stores %}
+        <h2>Stores with selected Project Variety</h2>
+        <ul>
+            {% for store in stores %}
+                <li>{{ store.name }} - {{ store.location }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
+
+
+
+{% comment %} {% block content %}
+  {% if stores %}
+        <h2>Stores with selected Chai Variety</h2>
+        <ul>
+            {% for store in stores %}
+                <li>{{ store.name }} - {{ store.location }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %} {% endcomment %}
