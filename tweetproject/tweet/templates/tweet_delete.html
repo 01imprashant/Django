@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Twitter
+{% endblock %}
+
+{% block content %}
+    <h1 class='text-black text-center text-4xl mt-2'>Are you sure you want to delete the Tweet!</h1>
+    <form class="flex justify-center mt-4 gap-4 mx-96" method="post">
+        {% csrf_token %}
+        <button class="w-full px-4 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600">Delete</button>
+        <a class="w-full px-4 py-2 bg-green-500 text-white text-center font-semibold rounded-lg hover:bg-green-600" href="{% url 'tweet_list' %}">Cancle</a>
+    </form>
+
+{% endblock %}

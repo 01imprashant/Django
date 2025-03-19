@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Twitter
+{% endblock %}
+
+{% block content %}
+    <h1 class='text-black text-center text-4xl mt-2'>Now you can call me X</h1>
+    <h2 class='text-black'>
+        {% if form.instance.pk %}
+         <p class="text-center text-black text-3xl mt-2">Edit Tweet</p>
+        {% else %}
+         <p class="text-center text-black text-3xl mt-2">Create New Tweet</p>
+        {% endif %}
+        <form class="flex-col justify-center mx-64 rounded-lg border-x-2 border-y-2 bg-white ml-80" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class='ml-20 mt-2'>{{form.as_p }}</div>
+            <div class='ml-10 mr-10'>
+                <button class="w-full px-4 py-2 mt-1 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600" href="{% url 'tweet_list' %}">Back</button> 
+                <button class="w-full px-4 py-2 mt-2 mb-1 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600" type="submit">Submit</button>
+            </div>
+        </form>
+
+    </h2>
+
+{% endblock %}
